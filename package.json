@@ -1,0 +1,21 @@
+{
+  "name": "vue-demo-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build:prod": "vue-cli-service build",
+    "build:stag": "vue-cli-service build --mode staging"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^4.5.15",
+    "vue-template-compiler": "^2.6.14"
+  }
+}
