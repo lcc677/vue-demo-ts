@@ -8,8 +8,13 @@
 export default ({
   data(){
     return{
+      women:'women',
       list:[{id:1,name:'z红果'},{id:2,name:'z红果2'}]
     }
+  },
+  created(){
+    const abc = 'created'
+    console.log(abc)
   }
 })
 </script>
