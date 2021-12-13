@@ -1,19 +1,21 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true
+    'env': {
+        'browser': true,
+        'node':true,
+        'es2021': true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:vue/essential"
+    'extends': [
+        'eslint:recommended',
+        'plugin:vue/recommended'
     ],
-    "parserOptions": {
-        "ecmaVersion": 13,
-        "sourceType": "module"
+    'parserOptions': {
+        'ecmaVersion': 13,
+        'sourceType': 'module'
     },
-    "plugins": [
-        "vue"
-    ],
-    "rules": {
+    // 'plugins': [
+    //     'vue'
+    // ],
+    'rules': {
+        'quotes': ['error', 'single'], // 字符串单引号还是双引号,可修复
     }
 };
