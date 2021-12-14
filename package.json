@@ -2,22 +2,24 @@
   "name": "vue-demo-js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "vue-cli-service serve",
-    "build:prod": "vue-cli-service build",
-    "build:stag": "vue-cli-service build --mode staging"
-  },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
+  "scripts": {
+    "lint": "vue-cli-service lint",
+    "build:prod": "vue-cli-service build",
+    "build:stag": "vue-cli-service build --mode staging",
+    "dev": "vue-cli-service serve"
+  },
+  "main": "index.js",
   "dependencies": {
     "vue": "^2.6.14"
   },
   "devDependencies": {
+    "@vue/cli-plugin-eslint": "^4.5.15",
     "@vue/cli-service": "^4.5.15",
     "eslint": "^8.4.1",
     "eslint-plugin-vue": "^8.2.0",
     "vue-template-compiler": "^2.6.14"
-  }
+  },
+  "keywords": [],
+  "license": "ISC"
 }

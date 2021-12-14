@@ -105,6 +105,8 @@ module.exports = {
 
 ## 9. 添加 eslint 格式校验
 
+#### 手动添加eslint
+
 ```shell
 npm install -D eslint
 // 初始化.eslintrc文件
@@ -112,6 +114,8 @@ eslint --init
 // 一个交互命令，我们选择框架是vue后，会提示我们安装eslint-plugin-vue这个插件
 ```
 添加完eslint,你可以在eslintrc.js配置文件中添加自己的rules.
+
+#### 使用vue提供的eslint包
 
 vue还给我们提供了一个@vue/cli-plugin-eslint的插件,这个插件可以向我们的vue-cli-service服务添加命令.我们看目前项目有的命令:
 ```shell
@@ -121,12 +125,31 @@ npx vue-cli-service help
    build     build for production
    inspect   inspect internal webpack config
 ```
-当我们安装@vue/cli-plugin-eslint插件后,
+当我们安装@vue/cli-plugin-eslint插件后,vue-cli-service会出现一个lint的命令,
+```shell
+vue add @vue/eslint
+```
+这个命令还会将包@vue/eslint自动解析成 @vue/cli-plugin-eslint,从npm安装这个包,并调用包的生成器.生成器会给我们提供选项,
+- 选择ESlint的,不同的选择会安装不同的配置
+  - 用第一个 Error prevention only 仅预防错误,
+  - 当然你也可以选择airbnb或者Prettier格式的,这两个包就会额外安装对应的配置和对应的核心包(Prettier会安装Prettier包)
+- 选择lint运行的时机
+  - 如果选择Lint and fix on commit 这个会在我们提交代码的时候,对我们提交的代码进行lint和fix操作,如果fix解决不了,就直接报错,并阻止提交
 
+```shell
+vue add @vue/eslint
+vue add eslint
+vue add @vue/cli-plugin-eslint
+# 三条命令都可以的
+```
+
+用vue add 插件命令,可以将我们需要的依赖都一次安装上,并生成我们想要的配置文件.eslintrc.js.当i选择一些配置还会产生editConfig文件.他也会修改我们的package.json文件的scripte,添加上他的**vue-cli-service lint** 命令.
 
 ## 10. 添加babel 代码转化
+
 添加babel之前,我们看一下,没有添加babel的代码
 我们在App.vue添加
+
 ```html
 <script>
 export default {
@@ -146,3 +169,10 @@ export default {
 ```
 打包完,我们可以看出来他跟源代码没有什么区别的
 ![avatar](./assets/image.png)
+
+#### 手动添加babel
+
+```shell
+npm install @babel/core
+```
+
