@@ -15,6 +15,11 @@ export default {
   },
   methods:{
     handle(){
+      const newPromise = Promise.resolve();
+      [1,2,3].forEach((item)=>{
+        console.log(item)
+      })
+      console.log(newPromise)
       const set = new Set();
       console.log(set)
     }

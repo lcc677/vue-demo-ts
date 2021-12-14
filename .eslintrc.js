@@ -2,14 +2,14 @@ module.exports = {
   'env': {
     'browser': true,
     'node': true,
-    'es2021': true
+    'es6': true
   },
   'extends': [
     'eslint:recommended',
     'plugin:vue/recommended'
   ],
   'parserOptions': {
-    'ecmaVersion': 13,
+    'ecmaVersion': 11,
     'sourceType': 'module'
   },
   // 'plugins': [
@@ -17,5 +17,6 @@ module.exports = {
   // ],
   'rules': {
     'quotes': ['error', 'single'], // 字符串单引号还是双引号,可修复
+    'no-unexpected-multiline': 2,
   }
 };

@@ -117,6 +117,8 @@ eslint --init
 
 #### 使用vue提供的eslint包
 
+先将我们手动安装的eslint和eslint-plugin-vue删除掉,因为这两个包跟我们@vue/eslint插件中的版本不匹配,会导致错误
+
 vue还给我们提供了一个@vue/cli-plugin-eslint的插件,这个插件可以向我们的vue-cli-service服务添加命令.我们看目前项目有的命令:
 ```shell
 npx vue-cli-service help 
@@ -168,11 +170,49 @@ export default {
 </script>
 ```
 打包完,我们可以看出来他跟源代码没有什么区别的
-![avatar](./assets/image.png)
+![未添加babel](./assets/image0.png)
 
-#### 手动添加babel
+#### 先用vue插件添加babel
 
 ```shell
-npm install @babel/core
+vue add @vue/babel
 ```
+
+会在当前目录下生成babel.config.js的文件.用于配置babel,除此之外不用做任何操作,那具体他是在哪里用了babel.
+
+我们大体知道webpack用babel的话,应该是在loader里面,我们先看看没有安装babel时候的webpack的配置,单独看js的
+
+安装后
+
+```js
+npx vue-cli-service inspect --rule js
+
+/* config.module.rule('js') */
+{
+  test: /\.m?jsx?$/,
+  exclude: [
+    function () { /* omitted long function */ }
+  ],
+  use: [
+    /* config.module.rule('js').use('cache-loader') */
+    {
+      loader: '/home/cc/web_work/code/vue-demo-js/node_modules/cache-loader/dist/cjs.js',
+      options: {
+        cacheDirectory: '/home/cc/web_work/code/vue-demo-js/node_modules/.cache/babel-loader',
+        cacheIdentifier: '482ef63c'
+      }
+    },
+    /* config.module.rule('js').use('babel-loader') */
+    {
+      loader: '/home/cc/web_work/code/vue-demo-js/node_modules/babel-loader/lib/index.js'
+    }
+  ]
+}
+```
+
+
+
+
+
+![添加babel后的](./assets/image.png)
 
