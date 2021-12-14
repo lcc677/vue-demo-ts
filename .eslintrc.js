@@ -22,6 +22,7 @@ module.exports = {
   'rules': {
     'quotes': ['error', 'single'], // 字符串单引号还是双引号,可修复
     'no-unexpected-multiline': 2,
-    'vue/max-attributes-per-line':0
+    'vue/max-attributes-per-line':0,
+    'space-infix-ops':'error', // 要求在操作符周围有空格,
   }
 };

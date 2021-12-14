@@ -12,7 +12,8 @@
   "main": "index.js",
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.14"
+    "vue": "^2.6.14",
+    "vue-class-component": "^7.2.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",

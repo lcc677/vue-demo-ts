@@ -1,18 +1,28 @@
 <template>
   <div>
     <span>hello typescipt vue</span>
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <h1>用户信息</h1>
+    <user-info :user-name="userName" />
+    <h1>Todo列表</h1>
+    <todo />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import UserInfo from './components/UserInfo.vue';
+import Todo from './components/Todo.vue'
 
 export default Vue.extend({
   name: 'App',
   components: {
-    HelloWorld
+    UserInfo,
+    Todo
+  },
+  data(){
+    return {
+      userName:'vue'
+    }
   }
 });
 </script>

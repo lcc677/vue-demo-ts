@@ -38,5 +38,9 @@ export default Vue.extend({
 
 默认导出的是一个继承自Vue的对象.里面写法跟我们写js是一样的
 
-除此之外还有一种方式，使用vue的vue-class-component装饰器包来使用
+除此之外还有一种方式，使用vue的vue-class-component装饰器包来使用。
+
+这两种方式我们都实验一下吧。那我们创建两个组件，UserInfo和Todo来
+
+
 
