@@ -182,6 +182,11 @@ vue add @vue/babel
 
 我们大体知道webpack用babel的话,应该是在loader里面,我们先看看没有安装babel时候的webpack的配置,单独看js的
 
+```js
+npx vue-cli-service inspect --rule js
+undefind
+```
+
 安装后
 
 ```js
@@ -210,9 +215,61 @@ npx vue-cli-service inspect --rule js
 }
 ```
 
+当我们安装了@vue/babel这个插件后,vue-cli会自动给我们添加babel的loader..具体详细的可以通过看一下源码大体能找到.
+
+![vue插件加载逻辑](./assets/image2.png)
 
 
 
+安装babel后,我们打包后的文件
 
 ![添加babel后的](./assets/image.png)
 
+#### 手动配置babel
+
+先安装babel依赖
+
+```shell
+npm install @babel/core @babel/preset-env 
+```
+
+安装完,我们怎么用呢?他跟eslint感觉还不太一样.eslint只是在我们开发时候,规范我们的代码的,不会在打包的时候使用,最多可以在提交代码的时候能使用.
+
+既然babel要在打包的时候有用,那我们就要考虑在webpack的loader中使用,在vue-cli构建的项目中,webpack需要写在vue.config.js文件下,并用Webpack-chain的链是来操作.又得看webpack和webpack-chain了.
+等我们后面创建一个纯webpack的vue项目.
+
+## 11. 配置TypeScript
+
+vue提供一个@vue/vue-plugin-TypeScript的插件.
+
+```shell
+vue add @vue/typescript
+```
+
+安装完成后,我们的src/main.js 会变成src/main.ts,而且我们的导入vue组件要加上后缀.不加会报错
+
+```tsx
+import App from './App'
+// 换成
+import App from './App.vue'
+```
+
+
+
+我们的App.vue也会发生变化,<scripte>中是ts样式
+
+```html
+<script lang="ts">
+import Vue from 'vue';
+import HelloWorld from './components/HelloWorld.vue';
+
+export default Vue.extend({
+  name: 'App',
+  components: {
+    HelloWorld
+  }
+});
+</script>
+```
+
+默认导出的是一个继承自Vue的对象.里面写法跟我们写js是一样的,

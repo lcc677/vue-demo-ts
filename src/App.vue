@@ -1,28 +1,29 @@
 <template>
-  <div>
-    <span>hello {{ name }}</span>
-    <button @click="handle">
-      按钮
-    </button>
+  <div id="app">
+    <span>hello typescipt vue</span>
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
   </div>
 </template>
-<script>
-export default {
-  data(){
-    return {
-      name:'vue'
-    }
-  },
-  methods:{
-    handle(){
-      const newPromise = Promise.resolve();
-      [1,2,3].forEach((item)=>{
-        console.log(item)
-      })
-      console.log(newPromise)
-      const set = new Set();
-      console.log(set)
-    }
+
+<script lang="ts">
+import Vue from 'vue';
+import HelloWorld from './components/HelloWorld.vue';
+
+export default Vue.extend({
+  name: 'App',
+  components: {
+    HelloWorld
   }
-}
+});
 </script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>

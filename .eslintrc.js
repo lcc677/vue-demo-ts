@@ -6,17 +6,22 @@ module.exports = {
   },
   'extends': [
     'eslint:recommended',
-    'plugin:vue/recommended'
+    'plugin:vue/recommended',
+    '@vue/typescript'
   ],
+
   'parserOptions': {
     'ecmaVersion': 11,
-    'sourceType': 'module'
+    'sourceType': 'module',
+    'parser': '@typescript-eslint/parser'
   },
+
   // 'plugins': [
   //     'vue'
   // ],
   'rules': {
     'quotes': ['error', 'single'], // 字符串单引号还是双引号,可修复
     'no-unexpected-multiline': 2,
+    'vue/max-attributes-per-line':0
   }
 };
