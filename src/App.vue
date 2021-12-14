@@ -1,7 +1,9 @@
 <template>
   <div>
-    <span>hello {{name}}</span>
-    <button @click="handle">按钮</button>
+    <span>hello {{ name }}</span>
+    <button @click="handle">
+      按钮
+    </button>
   </div>
 </template>
 <script>

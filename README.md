@@ -111,3 +111,38 @@ npm install -D eslint
 eslint --init 
 // 一个交互命令，我们选择框架是vue后，会提示我们安装eslint-plugin-vue这个插件
 ```
+添加完eslint,你可以在eslintrc.js配置文件中添加自己的rules.
+
+vue还给我们提供了一个@vue/cli-plugin-eslint的插件,这个插件可以向我们的vue-cli-service服务添加命令.我们看目前项目有的命令:
+```shell
+npx vue-cli-service help 
+
+   serve     start development server
+   build     build for production
+   inspect   inspect internal webpack config
+```
+当我们安装@vue/cli-plugin-eslint插件后,
+
+
+## 10. 添加babel 代码转化
+添加babel之前,我们看一下,没有添加babel的代码
+我们在App.vue添加
+```html
+<script>
+export default {
+  data(){
+    return {
+      name:'vue'
+    }
+  },
+  methods:{
+    handle(){
+      const set = new Set();
+      console.log(set)
+    }
+  }
+}
+</script>
+```
+打包完,我们可以看出来他跟源代码没有什么区别的
+![avatar](./assets/image.png)

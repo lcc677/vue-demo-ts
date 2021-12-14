@@ -1,5 +1,5 @@
 module.exports={
-  configureWebpack:config=>{
-    config.sourcemap='oo'
-  }
+  // configureWebpack:config=>{
+  //   config.sourcemap='oo'
+  // }
 }
